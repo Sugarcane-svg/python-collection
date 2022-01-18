@@ -1,4 +1,4 @@
-
+# build the game board
 def build_row(size):
     r = ''
     for row in range(size):
