@@ -17,9 +17,7 @@ def check_col(l):
 
 def check_diag(l):
     if l[1][1] != 0:
-        if l[0][0] == l[1][1] == l[2][2]:
-            return l[1][1]
-        elif l[2][0] == l[1][1] == l[0][2]:
+        if l[0][0] == l[1][1] == l[2][2] or l[2][0] == l[1][1] == l[0][2]:
             return l[1][1]
 
     return 0
