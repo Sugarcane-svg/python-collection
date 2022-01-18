@@ -16,7 +16,7 @@ while True:
         n += 1
         print('%d too low' % initial_guess)
         start = initial_guess
-        initial_guess = np.random.randint(start, end+1)
+        initial_guess = np.random.randint(start+1, end+1)
     elif actual_number < initial_guess:
         n += 1
         print('%d too high' % initial_guess)
