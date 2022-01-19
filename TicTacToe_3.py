@@ -42,16 +42,20 @@ def player(l, player):
 
 
 
-total_moves = 9
-game = initial_game_board()
-while total_moves > 0:
-    player(game, 1)
-    total_moves -= 1
-    if total_moves == 0:
-        break
-    player(game, 2)
-    total_moves -=1
-    
 
-print('game board is full, the game is finished')
+
+if __name__ == '__main__':
+
+    total_moves = 9
+    game = initial_game_board()
+    while total_moves > 0:
+        player(game, 1)
+        total_moves -= 1
+        if total_moves == 0:
+            break
+        player(game, 2)
+        total_moves -=1
+        
+
+    print('game board is full, the game is finished')
     
