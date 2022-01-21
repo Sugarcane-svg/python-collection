@@ -35,7 +35,12 @@ def checkGrid(grid):
 
 	return 0
 
+def init_game():
+    return [['', '', ''],
+            ['', '', ''],
+            ['', '', '']]
 
+            
 def player(l, player):
     play = ''
     if player == 1:
