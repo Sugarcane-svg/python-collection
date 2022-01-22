@@ -2,16 +2,14 @@
 
 # draw board
 def drawboard(board):
-
-    print (' ' + str(board[0][0]) + ' | ' + str(board[0][1]) + ' | ' + str(board[0][2]))
-    print ('-----------')
-    print (' ' + str(board[1][0]) + ' | ' + str(board[1][1]) + ' | ' + str(board[1][2]))
-    print('-----------')
-    print (' ' + str(board[2][0]) + ' | ' + str(board[2][1]) + ' | ' + str(board[2][2]))
-
-
-#drawboard(['', '', '', '', '', '', '', '', ''])
-
+    if isinstance(board, list):
+        print (' ' + str(board[0][0]) + ' | ' + str(board[0][1]) + ' | ' + str(board[0][2]))
+        print ('--- --- ---')
+        print (' ' + str(board[1][0]) + ' | ' + str(board[1][1]) + ' | ' + str(board[1][2]))
+        print('--- --- ---')
+        print (' ' + str(board[2][0]) + ' | ' + str(board[2][1]) + ' | ' + str(board[2][2]))
+    else:
+        print(board)
 
 # check winner
 def checkGrid(grid):
@@ -36,32 +34,49 @@ def checkGrid(grid):
 	return 0
 
 def init_game():
-    return [['', '', ''],
-            ['', '', ''],
-            ['', '', '']]
+    return [['0', '0', '0'],
+            ['0', '0', '0'],
+            ['0', '0', '0']]
 
-            
-def player(l, player):
-    play = ''
-    if player == 1:
-        play = input('enter a coordinate separate by "," for player1: ')
+
+def get_steps(s):
+    return s.strip().split(',')
+
+
+def move(l, steps, player):
+    if l[int(steps[0])-1][int(steps[1])-1] == 0 and player == 1:
+        l[int(steps[0])-1][int(steps[1])-1] = 'X'
+    elif l[int(steps[0])-1][int(steps[1])-1] == 0 and player == 2:
+        l[int(steps[0])-1][int(steps[1])-1] = 'O'
     else:
-        play = input('enter a coordinate separate by "," for player2: ')
+        return -1
 
-    steps = p.get_steps(play)
-    moves = p.move(l, steps, player)
-    drawboard(moves)
+    return l
+
+# def player(l, player):
+#     play = ''
+#     if player == 1:
+#         play = input('enter a coordinate separate by "," for player1: ')
+#     else:
+#         play = input('enter a coordinate separate by "," for player2: ')
+
+#     steps = get_steps(play)
+#     moves = move(l, steps, player)
+#     drawboard(moves)
 
 import TicTacToe_3 as p
 if __name__ == "__main__":
     total_moves = 9
-    game = p.initial_game_board()
+    game = init_game()
     drawboard(game)
+    
+    # moves = move(game, get_steps(player1), 1)
+    # print(moves)
     # while total_moves > 0:
-    #     p.player(game, 1)
-    #     total_moves -= 1
-    #     if total_moves == 0:
+    #      player(game, 1)
+    #      total_moves -= 1
+    #      if total_moves == 0:
     #         break
-    #     p.player(game, 2)
-    #     total_moves -= 1
+    #      player(game, 2)
+    #      total_moves -= 1
     # print('game board is full, the game is finished')
