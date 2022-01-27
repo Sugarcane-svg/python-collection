@@ -80,31 +80,34 @@ if __name__ == "__main__":
 
     game = init_game()
     drawboard(game)
-    while total_step > 0:
-        # player1 = input('enter a coordinate separated by "," for player 1: ')
-        # steps = get_steps(player1)
-        # print('step: ' + str(steps))
-        # game = move(game, steps, 1)
+    while total_step != 0:
+
         game = player(game, 1)
         if game == -1:
             print('you should not place your piece on the top of others. restart :)')
             game = player(init_game(), 1)
-        total_step -=1
+        
         drawboard(game)
         if display_winner(game) != 0:
             print(display_winner(game))
             break  
+        
+        total_step -= 1
+        if total_step == 0:
+            break
+
         game = player(game, 2)
         if game == -1:
             print('you should not place your piece on the top of others. restart :)')
             game = player(init_game(), 2)
-        total_step -= 1
+        
         drawboard(game)
         if display_winner(game) != 0:
             print(display_winner(game))
             break
-    
-    print('no winner')
+        total_step -= 1
+    if display_winner(game) == 0:
+        print('no winner')
 
 
         
