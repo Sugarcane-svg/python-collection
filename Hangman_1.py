@@ -15,4 +15,4 @@ l = r.split('\n')
 def pickword():
     return ''.join(np.random.choice(l, 1))
 
-print(pickword())
+#print(pickword())
