@@ -16,6 +16,7 @@ if __name__ == '__main__':
     print(" ".join(s))
 
     b = len(word)
+    t = 0
     # 
     while b > 0:
         new_guess = (input('Guess your letter(upper case only): '))
@@ -31,7 +32,9 @@ if __name__ == '__main__':
                 s[j] = new_guess
 
             b = b-len(indexes)
+
+        t = t+1
         print(" ".join(s))
-    print("Well Done!")
+    print("Well Done! Guess times %d" %t)
             
 
